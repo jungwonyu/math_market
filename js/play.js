@@ -114,9 +114,7 @@ export default class playScene extends Phaser.Scene {
   }
 
   create() {
-    this.bg = this.add.image(640, 360, 'background');
-    this.bg.setDisplaySize(1280, 720);
-    this.bg.setDepth(-100);
+    this.bg = this.add.image(640, 360, 'background').setDisplaySize(1280, 720).setDepth(-100);
 
     // 입력 설정
     this.cursors = this.input.keyboard.createCursorKeys();
@@ -225,8 +223,8 @@ export default class playScene extends Phaser.Scene {
 
     this.popupGroup = this.add.container(640, 360).setDepth(100).setVisible(false);
 
-    let bg = this.add.image(0, 0, 'popup');
-    this.popupText = this.add.text(0, -30, '', { fontSize: '26px', fontFamily: 'MapleStoryBold', fill: colors.brown_1, align: 'center', wordWrap: { width: 500 } }).setOrigin(0.5);
+    let bg = this.add.image(0, 0, 'popup').setScale(1.1);
+    this.popupText = this.add.text(0, -30, '', { fontSize: '22px', fontFamily: 'MapleStoryBold', fill: colors.brown_1, align: 'center', wordWrap: { width: 500 } }).setOrigin(0.5);
     let btn = this.add.image(0, 100, 'btn_close').setOrigin(0.5).setScale(0.5).setInteractive().on('pointerdown', () => this.hidePopup());
 
     this.popupGroup.add([bg, this.popupText, btn]);
